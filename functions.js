@@ -17,3 +17,22 @@ function attachRows(arr){
     }
 }
 
+function returnNames(arr){
+    let arrNou;
+    for(let i=0;i<arr.length;i++){
+        arrNou.appendChild(arr[i].name);
+    }
+    return arrNou;
+}
+function returnEmployee(data,name){
+    for(let i=0;i<data.length;i++){
+        if(data[i].name==name){
+            return data[i].name
+        }
+    }
+
+    return -1;
+}
+
+
+
