@@ -18,7 +18,7 @@ function api(path,method,body=null){
 }
 
 async function getAllEmployee(){
-    console.log("aici");
+ 
 
     let data=await api("employee",'GET');
 
