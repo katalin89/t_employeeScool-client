@@ -1,5 +1,5 @@
 function api(path,method,body=null){
-    const url="http://localhost:8080/api/v1/"+path;
+    const url="http://localhost:8080/api/v1/employee"+path;
 
     const options={
         method,
@@ -20,7 +20,7 @@ function api(path,method,body=null){
 async function getAllEmployee(){
     console.log("aici");
 
-    let data=await api("employee",'GET');
+    let data=await api("/all",'GET');
 
     data=await data.json();
 
@@ -29,7 +29,7 @@ async function getAllEmployee(){
 
 async function addEmployee(employee){
 
-    let data=await api("add",'POST',employee);
+    let data=await api("/add",'POST',employee);
 
     return data.json();
 }
@@ -43,7 +43,7 @@ async function getAllNames(){
 }
 
 async function getAllEmployeeByName(name){
-    let data=await api(`employee/${name}`,'GET');
+    let data=await api(`/${name}`,'GET');
 
     data=await data.json();
 
@@ -53,10 +53,13 @@ async function getAllEmployeeByName(name){
 async function deleteEmployee(employeeId){
     let data=await api(`delete/${employeeId}`,'DELETE');
 }
+async function deleteEmployeeByName(name){
+    let data=await api(`deleteByName/${name}`,'DELETE');
+}
 
 async function updateEmployee(employee){
 
-    let data=await api(`update`,'PUT',employee);
+    let data=await api(`/update`,'PUT',employee);
 
     return data;
 }
