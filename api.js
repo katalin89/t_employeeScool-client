@@ -4,10 +4,8 @@ function api(path,method,body=null){
     const options={
         method,
         headers:{
-            'Content-Type':'application/json;charset=utf-8',
-            
-        },
-        mode:"cors"
+            'Content-Type':'application/json;charset=utf-8',            
+        }
     };
 
     if(body !==null){
@@ -35,7 +33,7 @@ async function addEmployee(employee){
 }
 
 async function getAllNames(){
-    let data=await api("employee/name",'GET');
+    let data=await api("/employee/name",'GET');
 
     data=await data.json();
 
@@ -51,10 +49,10 @@ async function getAllEmployeeByName(name){
 }
 
 async function deleteEmployee(employeeId){
-    let data=await api(`delete/${employeeId}`,'DELETE');
+    let data=await api(`/delete/${employeeId}`,'DELETE');
 }
 async function deleteEmployeeByName(name){
-    let data=await api(`deleteByName/${name}`,'DELETE');
+    let data=await api(`/deleteByName/${name}`,'DELETE');
 }
 
 async function updateEmployee(employee){
@@ -66,7 +64,7 @@ async function updateEmployee(employee){
 
 async function sortByName(){
 
-    let data=await api(`sortByName`,'GET');
+    let data=await api(`/sortByName`,'GET');
 
     data =await data.json();
 
@@ -74,7 +72,7 @@ async function sortByName(){
 }
 
 async function sortByVarsta(){
-    let data=await api(`sortByVarsta`,'GET');
+    let data=await api(`/sortByVarsta`,'GET');
 
     data=await data.json();
 
@@ -83,7 +81,7 @@ async function sortByVarsta(){
 
 async function sortByAdresa(){
 
-    let data=await api(`sortByAdresa`,'GET');
+    let data=await api(`/sortByAdresa`,'GET');
 
     data=await data.json();
 
