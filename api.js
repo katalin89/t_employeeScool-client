@@ -29,7 +29,7 @@ async function addEmployee(employee){
 
     let data=await api("/add",'POST',employee);
 
-    return data.json();
+    return data;
 }
 
 async function getAllNames(){

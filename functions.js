@@ -31,16 +31,9 @@ container.addEventListener("click",async(e)=>{
 
     if(data.classList.contains("varsta")){
         let vec=await sortByVarsta();
-
-       
-
         attachRows(vec);
     } else if(data.classList.contains("name")){
         let vec=await sortByName();
-
-    
-
-
         attachRows(vec);
     }else if(data.classList.contains("adresa")){
         let vec=await sortByAdresa();
@@ -82,9 +75,9 @@ rowsContainer.addEventListener("click",(e)=>{
 
 
  function update(){
-    let inp1=document.getElementById('name');
-    let inp2=document.getElementById('varsta');
-    let inp3=document.getElementById('adresa');
+    let inp1=document.getElementById('nameInp');
+    let inp2=document.getElementById('varstaInp');
+    let inp3=document.getElementById('adresaInp');
 
     const employee={
         name:inp1.value,
@@ -108,22 +101,22 @@ rowsContainer.addEventListener("click",(e)=>{
         </ul>
 
         <p>
-            <label for="name">name</label>
-            <input name="name" type="text" class="name" id="name" value="${employee.name}" disabled>
+            <label for="nameInp">name</label>
+            <input name="nameInp" type="text" class="nameInp" id="nameInp" value="${employee.name}" disabled>
         </p>
 
         <p>
-            <label for="varsta">Varsta</label>
-            <input name="varsta" type="text" class="varsta" id="varsta" value="${employee.varsta}" >
+            <label for="varstaInbp">Varsta</label>
+            <input name="varstaInp" type="text" class="varstaInp" id="varstaInp" value="${employee.varsta}" >
         </p>
 
         <p>
-            <label for="adresa">Adresa</label>
-            <input name="adresa" type="text" class="adresa" id="adresa" value="${employee.adresa}" >
+            <label for="adresaInp">Adresa</label>
+            <input name="adresaInp" type="text" class="adresaInp" id="adresaInp" value="${employee.adresa}" >
         </p>
 
        <div>
-            <button class="update" >Update Employee</button>
+            <button class="update">Update Employee</button>
             <button class="delete">Delete Employee</button>
             <button class="cancel">Cancel</button>
         </div>
@@ -144,9 +137,9 @@ rowsContainer.addEventListener("click",(e)=>{
     let btnUpdate=document.querySelector(".update");
     btnUpdate.addEventListener("click",async()=>{
 
-        let inp1=document.querySelector(".name");
-        let inp2=document.querySelector(".varsta");
-        let inp3=document.querySelector(".adresa");
+        let inp1=document.querySelector(".nameInp");
+        let inp2=document.querySelector(".varstaInp");
+        let inp3=document.querySelector(".adresaInp");
 
         let employee={
             name:inp1.value,
@@ -329,12 +322,13 @@ function createRow(employee){
 
 function attachRows(arr){
     let container=document.querySelector(".container-employee");
-
+    if (container!= null) {
     container.innerHTML="";
     
         for(let i=0;i<arr.length;i++){
             container.appendChild(createRow(arr[i]));
         
+        }
     }
 }
 
